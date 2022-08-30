@@ -85,7 +85,7 @@ pub mod concert_ticket {
         };
 
         let cpi_ctx = CpiContext::new_with_signer(ctx.accounts.token_program.to_account_info(),transfer_instruction, outer.as_slice());
-        anchor_spl::token::transfer(cpi_ctx, tickets.price)?;
+        anchor_spl::token::transfer(cpi_ctx, tickets.price * quantity)?;
 
         tickets.available = tickets.available.checked_sub(quantity).ok_or_else(|| ErrorCode::InvalidSub).unwrap();
 

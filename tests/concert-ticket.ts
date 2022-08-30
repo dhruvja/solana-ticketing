@@ -138,7 +138,7 @@ describe("concert-ticket", () => {
 
 
     const aliceBalance = await spl.getAccount(provider.connection, aliceTokenAccount);
-    assert.equal(aliceBalance.amount.toString(), "1000");
+    assert.equal(aliceBalance.amount.toString(), "8000");
 
 
   })
